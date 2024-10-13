@@ -1,0 +1,131 @@
+/* src/components/Header.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a0f3b60;
+    padding: 1rem 2rem;
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar-login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('../../assets/starts.jpg');
+    padding: 1rem 2rem;
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .navbar-logo h1 {
+    font-size: 1.5rem;
+    color: #f8f8f8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .navbar-buttons .auth-button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #25292e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-buttons .auth-button:hover {
+    background-color: #131313;
+  }
+  
+  /* MUI Dialog Custom Styling */
+  .dialog-box .MuiPaper-root {
+    background-color: #0e0b3556;
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+  }
+  
+  .dialog-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 0.5rem;
+  }
+  
+  .dialog-content .dialog-input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    border-radius: 5px;
+  }
+  
+  .cancel-button, .submit-button {
+    color: white;
+    background-color: #007bff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+  }
+  
+  .cancel-button:hover, .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .dialog-box {
+    color: white; /* White text */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+  }
+  
+  .dialog-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .logo {
+    width: 60px; /* Adjust size as necessary */
+    height: auto;
+  }
+  
+  .dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .dialog-input {
+    margin: 0.5rem 0; /* Space between inputs */
+  }
+  
+  .submit-button {
+    background-color: #08074e; /* Bright red for contrast */
+    color: white;
+    margin-left: auto; /* Align to the right */
+  }
+  
+  .cancel-button {
+    background-color: #95a5a6; /* Grey for cancel */
+    color: black;
+  }
+  
+  .cancel-button:hover {
+    background-color: #08074e; /* Darker grey on hover */
+  }
+  
+  .submit-button:hover {
+    background-color: #08074e; /* Darker red on hover */
+  }
+  
+
+  

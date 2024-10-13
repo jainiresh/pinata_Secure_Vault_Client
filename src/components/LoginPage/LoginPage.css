@@ -1,0 +1,17 @@
+/* src/pages/LoginPage.css */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-image: url('../../assets/starts.jpg'); /* Adjust the path as needed */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    color: white; /* Optional: Change text color for better contrast */
+  }
+  
+  .header {
+    margin-bottom: 20px; /* Space between header and main content */
+  }
+  
