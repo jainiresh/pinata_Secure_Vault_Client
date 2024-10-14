@@ -60,7 +60,9 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
         setUserDetails((prevState) => ({
           ...prevState,
           privateKey: data.privateKey,
-          id: data.id
+          id: data.id,
+          firstName: data.firstName,
+          lastName: data.lastName
         }))
         navigate('/')
       }else{
@@ -103,7 +105,8 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
       <div className="navbar-buttons">
         {isLoggedIn ? (
           <>
-            <span style={{ paddingRight: '1rem' }}>AccountID : {userDetails.id}</span>
+          <span style={{ paddingRight: '1rem', color:'white', fontWeight:'bolder', fontSize:'1.1rem' }}>Name : {userDetails.firstName} {userDetails.lastName}</span>
+            <span style={{ paddingRight: '1rem', color:'white', fontWeight:'bolder', fontSize:'1.1rem' }}>AccountID : {userDetails.id}</span>
             <Button className="auth-button" onClick={handleLogout}>
               Logout
             </Button>
@@ -118,7 +121,6 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
           {!isLogin ?
             (<>
               <TextField
-                autoFocus
                 margin="dense"
                 id="firstName"
                 label="First Name"

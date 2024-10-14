@@ -13,7 +13,9 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userDetails, setUserDetails] = useState({
     privateKey: '',
-    id: ''
+    id: '',
+    firstName: '',
+    lastName: ''
   });
   const [loading, setLoading] = useState(false);
   const [fileKeyList, setFileKeyList] = useState([]);

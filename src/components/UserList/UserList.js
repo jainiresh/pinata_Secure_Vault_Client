@@ -12,10 +12,13 @@ import {
   DialogContent,
   DialogActions,
   Grid,
+  IconButton,
+  
 } from '@mui/material';
-import EncryptedLockImage from '../../assets/lock.png'; // Adjust path as necessary
 import './UserList.css'; // Import custom CSS for additional styles
 import { useNavigate } from 'react-router-dom';
+import { InfoRounded, MedicalInformationRounded, QuestionMark } from '@mui/icons-material';
+import { makeStyles } from '@mui/styles';
 
 const UserList = ({setLoading, refreshFileKeys}) => {
   const [users, setUsers] = useState([]);
@@ -23,6 +26,7 @@ const UserList = ({setLoading, refreshFileKeys}) => {
   const [uploadDialogOpen, setUploadDialogOpen] = useState(false);
   const [selectedUserId, setSelectedUserId] = useState(null); // Track selected user ID
   const [visiblePublicKeys, setVisiblePublicKeys] = useState({}); // Track which public keys are visible
+  const [dialogHelperOpen, setDialogHelperOpen] = useState(false);
   const backendBaseUrl = process.env.REACT_APP_BACKEND_BASE_URL;
   const navigate = useNavigate();
 
@@ -86,11 +90,14 @@ const UserList = ({setLoading, refreshFileKeys}) => {
     }));
   };
 
+  
+
+
   return (
     <Box p={2}>
       {/* Title for Users Section */}
       <Typography variant="h4" gutterBottom>
-        Users
+        <span>Users List</span> <IconButton onClick={() => setDialogHelperOpen(true)}><InfoRounded /></IconButton>
       </Typography>
       <Grid container spacing={2}>
         {users.map((user) => (
@@ -124,7 +131,7 @@ const UserList = ({setLoading, refreshFileKeys}) => {
       <Dialog open={uploadDialogOpen} onClose={() => setUploadDialogOpen(false)}>
         <DialogTitle>Upload File</DialogTitle>
         <DialogContent className="upload-container">
-          <div className="upload-overlay"></div> {/* Overlay div for opacity effect */}
+          <div className="upload-overlay"></div>
           <Input type="file" onChange={handleFileChange} />
         </DialogContent>
         <DialogActions>
@@ -136,6 +143,60 @@ const UserList = ({setLoading, refreshFileKeys}) => {
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Dialog
+      open={dialogHelperOpen}
+      onClose={() => setDialogHelperOpen(false)}
+      sx={{
+        '& .MuiDialog-paper': {
+          backgroundColor: '#2A2A2A', // Dark background
+          borderRadius: '15px',       // Rounded corners
+          color: '#fff',              // White text
+          padding: '20px',            // Padding for better spacing
+          width: '400px',             // Control the dialog width
+        },
+      }}
+    >
+      <DialogTitle
+        sx={{
+          fontSize: '24px',
+          fontWeight: 'bold',
+          color: '#1976d2',           // Golden text for the title
+          textAlign: 'center',
+          marginBottom: '10px',
+        }}
+      >
+        Information
+      </DialogTitle>
+      <DialogContent
+        sx={{
+          fontSize: '16px',
+          lineHeight: '1.5',
+          color: '#ddd',              // Lighter text for better readability
+          textAlign: 'center',
+        }}
+      >
+        <Typography>
+        This is the user list, allowing you to select a recipient for file uploads. SafeTransfer Hub automatically manages asymmetric encryption in the background, ensuring your files remain secure throughout the transfer process
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button
+          onClick={() => setDialogHelperOpen(false)}
+          sx={{
+            backgroundColor: '#1976d2', // Golden button color
+            color: '#2A2A2A',
+            fontWeight: 'bold',
+            '&:hover': {
+              backgroundColor: 'white',
+              color:'black' // Hover effect for the button
+            },
+          }}
+        >
+          Close
+        </Button>
+      </DialogActions>
+    </Dialog>
     </Box>
   );
 };
