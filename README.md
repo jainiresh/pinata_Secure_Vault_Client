@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+*This is a submission for the [The Pinata Challenge](https://dev.to/challenges/pinata)*
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What I Built
+I built **SafeTransfer Hub**, a secure file-sharing application where users can create accounts, and without sharing any personal information like phonenumbers, emails with other users can send and receive files securely. The core idea is that files can be uploaded and targeted to specific recipients in the app, with top-tier security through encryption.
 
-## Available Scripts
+### **Encryption Mechanism**
+SafeTransfer Hub employs a **hybrid encryption approach** using both **symmetric and asymmetric encryption** for robust security. The process is as follows:
 
-In the project directory, you can run:
+- Upon registration, each user is assigned a **public key** and a **private key**.
+- When a sender uploads a file targeting a recipient, the file is encrypted with the recipient's public key.
+- The encrypted file is stored on Pinata and added to a global file pool visible to all users, including the recipient.
+- While anyone can view file entries, all files remain encrypted. Users can attempt to decrypt files using their private key.
+- If the file is not intended for that user, their private key cannot decrypt it, ensuring privacy and security.
+- The application provides an abstraction in the form of **"Unlock"** and **"Unlock All"** buttons, which automatically handle the decryption process in the background. The **"Unlock All"** feature attempts to decrypt all files in the system, but only files intended for the user are successfully unlocked, as only their private key can decrypt them.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### **Global Pool, Yet Secure**
+All users in the system can view a **global pool of files**—entries for every file uploaded—but files remain completely inaccessible unless the user is the intended recipient. When someone tries to access a file they don’t own, they won’t be able to decrypt it because the file is locked with the recipient’s public key, and only that recipient can use their private key to unlock it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This ensures that files can be securely stored and transferred between users without any unauthorized access, making it an ideal platform for sharing sensitive information.
 
-### `npm test`
+## Demo
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here is the live website link : [Live website](https://pinata-secure-vault-client.onrender.com/)
+<!-- Share a link to your application and include some screenshots here. -->
+{% embed https://www.youtube.com/watch?v=Og2fkY1Gb9g %}
 
-### `npm run build`
+Client side code :
+{% embed https://github.com/jainiresh/pinata_Secure_Vault_Client %}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Server side code : 
+{% embed https://github.com/jainiresh/Pinata_secure_vault_server %}
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## More Details
+SafeTransfer Hub is built with simplicity, security, and user privacy in mind. Users can safely store and share files with recipients while being assured that no one else can access their data.
