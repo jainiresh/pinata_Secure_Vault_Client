@@ -69,3 +69,76 @@ input[type="file"]:hover {
     margin: 10px 0; /* Space between boxes */
   }
   
+/* User Card Styles */
+.card {
+  background-color: #1c1c1c; /* Dark background for a modern look */
+  color: #ffffff; /* White text for contrast */
+  border-radius: 20px; /* Rounded corners for a sleek feel */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Deep shadow for a 3D effect */
+  padding: 20px; /* Space inside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  position: relative; /* Ensure child elements are positioned relative to the card */
+  overflow: hidden; /* Hide content overflow */
+  background-image: url('../../assets/darkEarth2.jpg'); /* Add a subtle textured background */
+  background-size: cover;/* Ensure the background covers the entire card */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border for definition */
+}
+
+/* Lift the card when hovered */
+.card:hover {
+  transform: translateY(-10px); /* Lift the card on hover */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7); /* Darker, larger shadow */
+}
+
+/* Add an inner glowing effect */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  border-radius: 20px; /* Match card's border-radius */
+  background: rgba(255, 255, 255, 0.05); /* Soft glowing effect */
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Smooth glow transition */
+}
+
+.card:hover::after {
+  opacity: 1; /* Glow effect on hover */
+}
+
+/* Text content styling */
+.card h6 {
+  font-size: 1.3rem; /* Larger font for names */
+  font-weight: bold; /* Bold font for emphasis */
+  color: white; /* Gold text color for a premium look */
+  margin-bottom: 8px; /* Space below the name */
+}
+
+.card .MuiTypography-colorTextSecondary {
+  color: #b0b0b0; /* Light gray for secondary text */
+  margin-bottom: 5px;
+}
+
+/* Style the 'Show Public Key' link */
+.card .MuiTypography-colorTextSecondary:hover {
+  color: #f1c40f; /* Change to gold on hover */
+  cursor: pointer; /* Pointer cursor */
+}
+
+/* Button styling */
+.card button {
+  /* background-color: #f1c40f; /* Gold button for contrast */
+  color: #1c1c1c; /* Dark text for readability */
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 8px 16px; /* Padding for a comfortable button size */
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #f39c12; /* Darker gold on hover */
+  color: #fff; /* White text on hover */
+}

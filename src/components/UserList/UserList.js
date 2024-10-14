@@ -1,5 +1,6 @@
 // src/components/UserList.js
 import React, { useEffect, useState } from 'react';
+import bgImage from '../../assets/giphy.webp'
 import {
   Box,
   Card,
@@ -28,7 +29,7 @@ const UserList = ({setLoading, refreshFileKeys}) => {
   const [visiblePublicKeys, setVisiblePublicKeys] = useState({}); // Track which public keys are visible
   const [dialogHelperOpen, setDialogHelperOpen] = useState(false);
   const backendBaseUrl = process.env.REACT_APP_BACKEND_BASE_URL;
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -94,22 +95,22 @@ const UserList = ({setLoading, refreshFileKeys}) => {
 
 
   return (
-    <Box p={2}>
+    <Box sx={{background:'transparent'}} p={2}>
       {/* Title for Users Section */}
       <Typography variant="h4" gutterBottom>
-        <span>Users List</span> <IconButton onClick={() => setDialogHelperOpen(true)}><InfoRounded /></IconButton>
+        <span style={{color: 'black'}}>Users List</span> <IconButton onClick={() => setDialogHelperOpen(true)}><InfoRounded /></IconButton>
       </Typography>
       <Grid container spacing={2}>
         {users.map((user) => (
           <Grid item xs={12} sm={6} md={4} key={user.id} >
-            <Card variant="outlined" sx={{ marginBottom: 2 }} >
+            <Card className='card' variant="outlined" sx={{ marginBottom: 2 }} >
               <CardContent>
-                <Typography variant="h6">{`${user.firstName} ${user.lastName}`}</Typography>
-                <Typography color="textSecondary">ID: {user.id}</Typography>
+                <Typography  variant="h6">{`${user.firstName} ${user.lastName}`}</Typography>
+                <Typography sx={{color: 'white'}} color="textSecondary">ID: {user.id}</Typography>
                 <Typography
                   color="textSecondary"
                   onClick={() => togglePublicKeyVisibility(user.id)}
-                  style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  style={{ cursor: 'pointer', textDecoration: 'underline', color: 'whitesmoke' }}
                 >
                   {visiblePublicKeys[user.id] ? user.publicKey : 'Show Public Key'}
                 </Typography>

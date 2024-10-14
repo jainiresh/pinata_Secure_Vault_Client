@@ -6,6 +6,7 @@ import UserList from './components/UserList/UserList';
 import FileList from './components/FileList/FileList';
 import Loader from './components/Loader/Loader.js';
 import Header from './components/Header/Header.js';
+import bgImage from './assets/whiteSky1.jpeg'
 
 const App = () => {
   let url = `${process.env.REACT_APP_BACKEND_BASE_URL}`;
@@ -46,11 +47,10 @@ const App = () => {
               <Header 
         isLoggedIn={isLoggedIn} // Pass false since this is the login page
         setUserDetails={setUserDetails} 
-        userH
         setIsLoggedIn={setIsLoggedIn} 
         userDetails={userDetails} // No user details at this point
           />
-            <div style={{display: 'flex', flexDirection: 'column', justifyContent:'space-between'}}>
+            <div style={{display: 'flex', flexDirection: 'column', justifyContent:'space-between', backgroundImage:`url(${bgImage})`, backgroundSize: 'cover'}}>
               <UserList refreshFileKeys={refreshFileKeys} setLoading={setLoading} />
               <FileList userDetails={userDetails} setLoading={setLoading} fileKeyList={fileKeyList} setFileKeyList={setFileKeyList} />
               </div>

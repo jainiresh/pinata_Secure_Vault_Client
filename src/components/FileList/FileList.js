@@ -134,9 +134,9 @@ const FileList = ({ userDetails, setLoading, fileKeyList, setFileKeyList }) => {
   return (
     <div className="file-list-container">
       <Typography variant="h3" className="file-list-title">
-        <span>Uploaded Pinata Cloud Files</span><IconButton onClick={() => setDialogHelperOpen(true)}><InfoRounded /></IconButton>
+        <span style={{color : 'black'}}>Uploaded Pinata Cloud Files</span><IconButton onClick={() => setDialogHelperOpen(true)}><InfoRounded /></IconButton>
       </Typography>
-      <Typography variant='h6' sx={{ fontSize: '1.3rem', marginLeft: '28vw', marginBottom: '7rem', fontStyle: 'italic' }}>
+      <Typography variant='h6' sx={{ fontSize: '1.3rem', color: 'black', marginLeft: '28vw', marginBottom: '7rem', fontStyle: 'italic' }}>
         ( "Your private key seamlessly decrypts only the files meant for you, ensuring that access is exclusive and secure." )
       </Typography>
 

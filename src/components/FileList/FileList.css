@@ -2,7 +2,8 @@
 
 .file-list-container {
   padding: 20px;
-  background-color: #f9fafc;
+  background: transparent;
+  height: 50vh;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
