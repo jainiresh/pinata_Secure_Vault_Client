@@ -122,6 +122,7 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
                 margin="dense"
                 id="firstName"
                 label="First Name"
+                autoComplete='off'
                 type="text"
                 fullWidth
                 onChange={handleLoginCredsChange}
@@ -152,6 +153,7 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
                 id="lastName"
                 label="Last Name"
                 type="text"
+                autoComplete='off'
                 fullWidth
                 variant="outlined"
                 onChange={handleLoginCredsChange}
@@ -182,6 +184,7 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
             margin="dense"
             id="email"
             label="Email Address"
+            autoComplete='off'
             type="email"
             fullWidth
             onChange={handleLoginCredsChange}
@@ -212,6 +215,7 @@ const Header = ({ isLoggedIn, setUserDetails, setIsLoggedIn, userDetails }) => {
             margin="dense"
             id="password"
             label="Password"
+            autoComplete='off'
             type="password"
             fullWidth
             variant="outlined"
